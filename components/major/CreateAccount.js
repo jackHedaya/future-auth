@@ -15,16 +15,14 @@ export default class CreateAccount extends React.Component {
   }
 
   verifyAndContinue() {
-    // if (/^\S+@\S+\.\S+$/.test(this.state.email)) 
+    // if (/^\S+@\S+\.\S+$/.test(this.state.email))
     //   console.log("Continue")
     // else
-
-    
   }
 
   render() {
     return (
-      <View>
+      <>
         <FieldItem
           title={"Email"}
           value={this.state.email}
@@ -33,8 +31,8 @@ export default class CreateAccount extends React.Component {
           }}
           keyboardType={"email-address"}
         />
-        <MainButton title={"Continue"} onPress={this.verifyAndContinue} />
-      </View>
+        <MainButton onPress={this.verifyAndContinue}>Continue</MainButton>
+      </>
     );
   }
 }

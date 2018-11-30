@@ -4,8 +4,12 @@ import styles from "../../styles/minor/MainButton";
 
 const MainButton = props => {
   return (
-    <TouchableOpacity style={styles.background} activeOpacity={0.5} onPress={props.onPress}>
-      <Text style={styles.text}>{props.title}</Text>
+    <TouchableOpacity
+      style={props.overwriteStyle ? styles.background : { ...styles.background, ...props.backgroundStyle }}
+      activeOpacity={0.5}
+      onPress={props.onPress}
+    >
+      <Text style={props.overwriteStyle ? props.style : { ...styles.text, ...props.style }}>{props.children}</Text>
     </TouchableOpacity>
   );
 };
