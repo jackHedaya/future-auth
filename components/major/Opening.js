@@ -1,11 +1,14 @@
 import React from "react";
+import { View } from "react-native";
 import { withRouter } from "react-router-native";
 
 import MainButton from "../minor/MainButton";
 
+import appStyle from "../../styles/App";
+
 export default withRouter(props => {
   return (
-    <>
+    <View style={appStyle.screen}>
       <MainButton backgroundStyle={{ borderRadius: 1000 }} onPress={() => props.history.push("/signup")}>
         Create Account
       </MainButton>
@@ -15,6 +18,6 @@ export default withRouter(props => {
       >
         Log In
       </MainButton>
-    </>
+    </View>
   );
 });
