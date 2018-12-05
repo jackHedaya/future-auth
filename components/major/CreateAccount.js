@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { withRouter } from "react-router-native"
+import { withRouter } from "react-router-native";
 
 import FieldItem from "../minor/FieldItem";
 import MainButton from "../minor/MainButton";
@@ -14,14 +14,21 @@ class CreateAccount extends React.Component {
 
     this.state = {
       email: "",
+      password: "",
       shouldShowPassword: false
     };
 
-    this.verifyAndContinue = this.verifyAndContinue.bind(this);
+    this.verifyEmailAndContinue = this.verifyEmailAndContinue.bind(this);
   }
 
-  verifyAndContinue() {
+  verifyEmailAndContinue() {
     if (/^\S+@\S+\.\S+$/.test(this.state.email)) this.setState({ shouldShowPassword: true });
+  }
+
+  verifyPasswordAndContinue() {
+    if (this.state.password.length > 6) {
+      // Submit password
+    }
   }
 
   render() {
@@ -36,11 +43,18 @@ class CreateAccount extends React.Component {
           }}
           keyboardType={"email-address"}
         />
-        {this.state.shouldShowPassword ? <FieldItem title={"Password"} /> : null}
-        <MainButton onPress={this.verifyAndContinue}>Continue</MainButton>
+        {this.state.shouldShowPassword ? (
+          <FieldItem
+            title={"Password"}
+            value={this.state.password}
+            onChangeText={t => this.setState({ password: t })}
+            secureTextEntry
+          />
+        ) : null}
+        <MainButton onPress={this.verifyEmailAndContinue}>Continue</MainButton>
       </View>
     );
   }
 }
 
-export default withRouter(CreateAccount)
+export default withRouter(CreateAccount);
