@@ -1,8 +1,8 @@
-# Sweet Home
-An app that plays music based on your location!
+# Future Auth
+An authentication that shall hopefully be used in the future.
 
 ## Getting Started
-- `$ git clone http://github.com/jackHedaya/sweet-email`
+- `$ git clone http://github.com/jackHedaya/future-auth
 
 ## Releases
 None yet! Stay tuned!
