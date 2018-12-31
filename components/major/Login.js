@@ -9,10 +9,10 @@ import appStyle from "../../styles/App";
 import MainButton from "../minor/MainButton";
 import BackButton from "../minor/BackButton";
 
-class Login extends React.Component {
+export default class Login extends React.Component {
   constructor(props) {
     super(props);
-    ls.get("sessionId").then(x => console.log(x))
+
     this.state = {
       email: "",
       password: ""
@@ -35,8 +35,8 @@ class Login extends React.Component {
       })
     })
       .then(resp => resp.text()) 
-      .then((text) => ls.save("sessionId", text))
-      .then(() => this.props.history.push("/home"))
+      .then(text => ls.save("sessionId", text))
+      .then(_ => this.props.history.push("/home"))
       .catch(x => console.error(x));
   }
 
